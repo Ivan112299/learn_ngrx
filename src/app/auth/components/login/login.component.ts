@@ -7,7 +7,7 @@ import { isSubmittingSelector, validationErrorsSelector } from '../../store/sele
 import { BackendErrorInterface } from 'src/app/shared/types/backendError.interface';
 
 @Component({
-  selector: 'app-login',
+  selector: 'mc-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
