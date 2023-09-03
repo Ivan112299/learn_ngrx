@@ -6,6 +6,9 @@ import { FeedComponent } from 'src/app/shared/modules/feed/components/feed/feed.
   templateUrl: './global-feed.component.html',
   styleUrls: ['./global-feed.component.scss']
 })
-export class GlobalFeedComponent {
 
+
+export class GlobalFeedComponent {
+  apiUrl='/articles?limit=10&offset=0'
+  
 }
