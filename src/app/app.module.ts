@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AuthService } from './auth/services/auth.service';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { topBarModule } from './shared/modules/topBar/topbar.module';
+import { TopBarModule } from './shared/modules/topBar/topbar.module';
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistantService } from './shared/services/persistant.servise';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { FeedModule } from './shared/modules/feed/feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,9 @@ import { PersistantService } from './shared/services/persistant.servise';
       traceLimit: 75, 
     }),
     EffectsModule.forRoot([]),
-    topBarModule
+    TopBarModule,
+    GlobalFeedModule,
+    FeedModule
   ],
   providers: [
     PersistantService, 

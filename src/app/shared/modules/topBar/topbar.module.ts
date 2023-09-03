@@ -12,4 +12,4 @@ import { RouterModule } from '@angular/router';
   providers:[],
   exports: [topBarComponent]
 })
-export class topBarModule { }
+export class TopBarModule { }
