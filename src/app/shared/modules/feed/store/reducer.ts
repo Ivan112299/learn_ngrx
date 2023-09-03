@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { FeedStateInterface } from "../types/feedState.interface";
 import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from "./actions/getFeed.action";
+import { routerNavigatedAction } from "@ngrx/router-store";
 
 const initialState: FeedStateInterface = {
   isLoading: false, 
@@ -30,6 +31,12 @@ const feedReduser = createReducer(
     (state): FeedStateInterface => ({
       ...state,
       isLoading: false
+    })
+  ),
+  on(                                     // этот on очищает данные при смене роута
+    routerNavigatedAction,
+    (): FeedStateInterface => ({
+      ...initialState
     })
   )
 )

@@ -9,6 +9,6 @@ import { FeedComponent } from 'src/app/shared/modules/feed/components/feed/feed.
 
 
 export class GlobalFeedComponent {
-  apiUrl='/articles?limit=10&offset=0'
+  apiUrl='/articles'
   
 }

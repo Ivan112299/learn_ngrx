@@ -13,6 +13,7 @@ import { AuthInterceptor } from './shared/services/authInterceptor.service';
 import { PersistantService } from './shared/services/persistant.servise';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { FeedModule } from './shared/modules/feed/feed.module';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { FeedModule } from './shared/modules/feed/feed.module';
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({router: routerReducer}),   // routerReducer из отдельной бибдиотеки функционал отследивания изменений роута через redux
     StoreDevtoolsModule.instrument({
       maxAge: 25, // кол-во экшенов в дев тулз
       logOnly: !isDevMode(),
@@ -32,7 +33,9 @@ import { FeedModule } from './shared/modules/feed/feed.module';
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
-    FeedModule
+    FeedModule,
+    StoreRouterConnectingModule.forRoot()
+
   ],
   providers: [
     PersistantService, 
